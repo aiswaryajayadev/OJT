@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\aiswarya.jayadev\\Desktop\\New folder\\OJT\\Infrastructure\\Infrastructure.csproj": {}
+    "C:\\Users\\aiswarya.jayadev\\Desktop\\OJT\\OJT\\Infrastructure\\Infrastructure.csproj": {}
   },
   "projects": {
-    "C:\\Users\\aiswarya.jayadev\\Desktop\\New folder\\OJT\\Infrastructure\\Infrastructure.csproj": {
+    "C:\\Users\\aiswarya.jayadev\\Desktop\\OJT\\OJT\\Infrastructure\\Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\aiswarya.jayadev\\Desktop\\New folder\\OJT\\Infrastructure\\Infrastructure.csproj",
+        "projectUniqueName": "C:\\Users\\aiswarya.jayadev\\Desktop\\OJT\\OJT\\Infrastructure\\Infrastructure.csproj",
         "projectName": "Infrastructure",
-        "projectPath": "C:\\Users\\aiswarya.jayadev\\Desktop\\New folder\\OJT\\Infrastructure\\Infrastructure.csproj",
+        "projectPath": "C:\\Users\\aiswarya.jayadev\\Desktop\\OJT\\OJT\\Infrastructure\\Infrastructure.csproj",
         "packagesPath": "C:\\Users\\aiswarya.jayadev\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\aiswarya.jayadev\\Desktop\\New folder\\OJT\\Infrastructure\\obj\\",
+        "outputPath": "C:\\Users\\aiswarya.jayadev\\Desktop\\OJT\\OJT\\Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\aiswarya.jayadev\\AppData\\Roaming\\NuGet\\NuGet.Config",

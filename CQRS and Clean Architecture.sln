@@ -3,11 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.10.35027.167
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web Api", "Web Api\Web Api.csproj", "{65977F2B-3269-4ACA-AA4C-B8F0FB26E6DB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Web Api", "Web Api\Web Api.csproj", "{65977F2B-3269-4ACA-AA4C-B8F0FB26E6DB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{A6FCDF32-DF07-4563-BF11-E087F7B5AF0F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{A6FCDF32-DF07-4563-BF11-E087F7B5AF0F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application", "Application\Application.csproj", "{F3A35788-5952-44EB-A057-FE17550F1672}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application", "Application\Application.csproj", "{F3A35788-5952-44EB-A057-FE17550F1672}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VisitorFormTesting", "VisitorFormTesting\VisitorFormTesting.csproj", "{5F87534A-2A96-4612-B4EF-2A1D560F1FD4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{F3A35788-5952-44EB-A057-FE17550F1672}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F3A35788-5952-44EB-A057-FE17550F1672}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F3A35788-5952-44EB-A057-FE17550F1672}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5F87534A-2A96-4612-B4EF-2A1D560F1FD4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F87534A-2A96-4612-B4EF-2A1D560F1FD4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F87534A-2A96-4612-B4EF-2A1D560F1FD4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F87534A-2A96-4612-B4EF-2A1D560F1FD4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

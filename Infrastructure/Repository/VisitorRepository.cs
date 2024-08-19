@@ -1,4 +1,5 @@
-﻿using Infrastructure.Models;
+﻿using Infrastructure.Data;
+using Infrastructure.Models;
 using Infrastructure.Repository.IRepository;
 using Microsoft.EntityFrameworkCore;
 using System;
