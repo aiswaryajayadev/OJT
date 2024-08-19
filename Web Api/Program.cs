@@ -1,14 +1,13 @@
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 using MediatR;
-
-using Infrastructure;
 using Microsoft.AspNetCore.Hosting;
 using Application.Command_Handler;
 using Application.Validators;
 using Infrastructure.Repository.IRepository;
 using Infrastructure.Repository;
 using FluentValidation;
+using Infrastructure.Data;
 var builder = WebApplication.CreateBuilder(args);
 
 

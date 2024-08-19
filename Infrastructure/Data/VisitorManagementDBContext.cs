@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Infrastructure
+namespace Infrastructure.Data
 {
     public class VisitorManagementDbContext : DbContext
     {
@@ -15,7 +15,7 @@ namespace Infrastructure
         }
 
         public DbSet<Visitor> Visitors { get; set; }
-       
+
     }
 
 }

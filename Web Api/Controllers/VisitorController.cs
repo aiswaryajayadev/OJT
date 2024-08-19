@@ -17,15 +17,20 @@ public class VisitorController : ControllerBase
     }
 
     [HttpPost]
-
     public async Task<ActionResult<Visitor>> CreateVisitor([FromBody] VisitorCreationDTO visitorDto)
     {
+        if (visitorDto == null)
+        {
+            return BadRequest("Visitor data cannot be null");
+        }
+
         var command = new CreateVisitorCommand { VisitorDto = visitorDto };
         var result = await _mediator.Send(command);
+
         return Ok(result);
     }
 
-  
+
 
     [HttpGet]
     public async Task<ActionResult<IEnumerable<Visitor>>> GetVisitorDetails()
