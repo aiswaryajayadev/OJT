@@ -75,6 +75,10 @@
             "Npgsql.EntityFrameworkCore.PostgreSQL": {
               "target": "Package",
               "version": "[8.0.4, )"
+            },
+            "ReportGenerator": {
+              "target": "Package",
+              "version": "[5.3.8, )"
             }
           },
           "imports": [
@@ -164,6 +168,10 @@
             "Npgsql.EntityFrameworkCore.PostgreSQL": {
               "target": "Package",
               "version": "[8.0.4, )"
+            },
+            "ReportGenerator": {
+              "target": "Package",
+              "version": "[5.3.8, )"
             }
           },
           "imports": [
@@ -260,6 +268,10 @@
             "Npgsql.EntityFrameworkCore.PostgreSQL": {
               "target": "Package",
               "version": "[8.0.4, )"
+            },
+            "ReportGenerator": {
+              "target": "Package",
+              "version": "[5.3.8, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
