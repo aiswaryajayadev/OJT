@@ -75,6 +75,10 @@
             "Npgsql.EntityFrameworkCore.PostgreSQL": {
               "target": "Package",
               "version": "[8.0.4, )"
+            },
+            "ReportGenerator": {
+              "target": "Package",
+              "version": "[5.3.8, )"
             }
           },
           "imports": [
@@ -164,6 +168,10 @@
             "Npgsql.EntityFrameworkCore.PostgreSQL": {
               "target": "Package",
               "version": "[8.0.4, )"
+            },
+            "ReportGenerator": {
+              "target": "Package",
+              "version": "[5.3.8, )"
             }
           },
           "imports": [
@@ -262,9 +270,19 @@
               "target": "Package",
               "version": "[4.6.0, )"
             },
+            "ReportGenerator": {
+              "target": "Package",
+              "version": "[5.3.8, )"
+            },
             "coverlet.collector": {
               "target": "Package",
               "version": "[6.0.0, )"
+            },
+            "coverlet.msbuild": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[6.0.2, )"
             }
           },
           "imports": [
@@ -361,6 +379,10 @@
             "Npgsql.EntityFrameworkCore.PostgreSQL": {
               "target": "Package",
               "version": "[8.0.4, )"
+            },
+            "ReportGenerator": {
+              "target": "Package",
+              "version": "[5.3.8, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("VisitorFormTesting")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+840cc7a391e52b7a969e4d3546c4a0c913cd2141")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+93a772eb2256c795a4f4f9ce3f6d53a3f13a69c4")]
 [assembly: System.Reflection.AssemblyProductAttribute("VisitorFormTesting")]
 [assembly: System.Reflection.AssemblyTitleAttribute("VisitorFormTesting")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
