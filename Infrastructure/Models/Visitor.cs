@@ -11,9 +11,9 @@ namespace Infrastructure.Models
         public int Id { get; set; }
         public string Name { get; set; }
         public string Phone { get; set; }
-        public int PurposeId { get; set; }
+        public string PurposeOfVisit { get; set; }
         public string HostName { get; set; }
-        public int OfficeLocationId { get; set; }
+        public string OfficeLocation { get; set; }
         public int StaffId { get; set; }
         public int VisitorPassCode { get; set; }
         public DateTime VisitDate { get; set; }

@@ -14,7 +14,7 @@ namespace Application.Validators
         {
             RuleFor(x => x.VisitorDto.Name).NotEmpty().WithMessage("Name is required.");
             RuleFor(x => x.VisitorDto.PhoneNumber).NotEmpty().WithMessage("Phone number is required.");
-            RuleFor(x => x.VisitorDto.PurposeOfVisitId).GreaterThan(0).WithMessage("Purpose of visit is required.");
+            RuleFor(x => x.VisitorDto.PurposeOfVisit).NotEmpty().WithMessage("Purpose of visit is required.");
             RuleFor(x => x.VisitorDto.PersonInContact).NotEmpty().WithMessage("Person in contact is required.");
         }
     }
