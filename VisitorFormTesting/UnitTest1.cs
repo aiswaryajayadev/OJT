@@ -31,9 +31,9 @@ namespace VisitorFormTesting
             {
                 Name = "Visitor1",
                 PhoneNumber = "1111111111",
-                PurposeOfVisitId = 1,
+                PurposeOfVisit = "Meeting",
                 PersonInContact = "Host1",
-                OfficeLocationId = 1
+                OfficeLocation = "Kochi"
             };
 
             var createdVisitor = new Visitor
@@ -41,9 +41,9 @@ namespace VisitorFormTesting
                 Id = 1,
                 Name = "Visitor1",
                 Phone = "1111111111",
-                PurposeId = 1,
+                PurposeOfVisit = "Interview",
                 HostName = "Host1",
-                OfficeLocationId = 1,
+                OfficeLocation = "TVM",
                 VisitorPassCode = 1234,
                 VisitDate = DateTime.Today,
                 CreatedDate = DateTime.Now,
@@ -87,8 +87,8 @@ namespace VisitorFormTesting
             // Arrange
             var visitors = new List<Visitor>
             {
-                new Visitor { Id = 1, Name = "Visitor1", Phone = "1111111111", PurposeId = 1, HostName = "Host1", OfficeLocationId = 1, VisitorPassCode = 1234, VisitDate = DateTime.Today },
-                new Visitor { Id = 2, Name = "Visitor2", Phone = "2222222222", PurposeId = 2, HostName = "Host2", OfficeLocationId = 2, VisitorPassCode = 5678, VisitDate = DateTime.Today }
+                new Visitor { Id = 1, Name = "Visitor1", Phone = "1111111111", PurposeOfVisit = "Meeting", HostName = "Host1", OfficeLocation = "Kochi", VisitorPassCode = 1234, VisitDate = DateTime.Today },
+                new Visitor { Id = 2, Name = "Visitor2", Phone = "2222222222", PurposeOfVisit = "Training", HostName = "Host2", OfficeLocation = "TVM", VisitorPassCode = 5678, VisitDate = DateTime.Today }
             };
 
             _mediator.Setup(m => m.Send(It.IsAny<GetVisitorDetailsQuery>(), default))

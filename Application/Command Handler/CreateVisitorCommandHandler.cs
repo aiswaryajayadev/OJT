@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Application.Command_Handler
@@ -26,9 +27,9 @@ namespace Application.Command_Handler
             {
                 Name = visitorDto.Name,
                 Phone = visitorDto.PhoneNumber,
-                PurposeId = visitorDto.PurposeOfVisitId,
+                PurposeOfVisit = visitorDto.PurposeOfVisit,
                 HostName = visitorDto.PersonInContact,
-                OfficeLocationId = visitorDto.OfficeLocationId,
+                OfficeLocation = visitorDto.OfficeLocation,
                 StaffId = 1,
                 
                 VisitorPassCode = 0,
@@ -46,6 +47,8 @@ namespace Application.Command_Handler
 
             return createdVisitor;
         }
+
+      
     }
 
 }
