@@ -232,3 +232,11 @@ C:\Users\aiswarya.jayadev\Desktop\OJT\OJT\Web Api\bin\Debug\net8.0\Microsoft.Ext
 C:\Users\aiswarya.jayadev\Desktop\OJT\OJT\Web Api\bin\Debug\net8.0\Microsoft.Extensions.Identity.Stores.dll
 C:\Users\aiswarya.jayadev\Desktop\OJT\OJT\Web Api\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
 C:\Users\aiswarya.jayadev\Desktop\OJT\OJT\Web Api\bin\Debug\net8.0\System.Security.Permissions.dll
+C:\Users\aiswarya.jayadev\Desktop\OJT\OJT\Web Api\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\aiswarya.jayadev\Desktop\OJT\OJT\Web Api\bin\Debug\net8.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\aiswarya.jayadev\Desktop\OJT\OJT\Web Api\bin\Debug\net8.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\aiswarya.jayadev\Desktop\OJT\OJT\Web Api\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\aiswarya.jayadev\Desktop\OJT\OJT\Web Api\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\aiswarya.jayadev\Desktop\OJT\OJT\Web Api\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\aiswarya.jayadev\Desktop\OJT\OJT\Web Api\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\aiswarya.jayadev\Desktop\OJT\OJT\Web Api\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
