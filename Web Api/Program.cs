@@ -1,6 +1,4 @@
 using Microsoft.EntityFrameworkCore;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using System.Reflection;
 using MediatR;
 using Microsoft.AspNetCore.Hosting;
 using Application.Command_Handler;
