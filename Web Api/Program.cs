@@ -10,6 +10,10 @@ using Infrastructure.Data;
 using Infrastructure.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.OpenApi.Models;
+using Infrastructure.Identity;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 var builder = WebApplication.CreateBuilder(args);
 
 
@@ -24,6 +28,7 @@ builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddMediatR(typeof(CreateUserCommandHandler).Assembly);
 builder.Services.AddMediatR(typeof(LoginCommandHandler).Assembly);
 builder.Services.AddMediatR(typeof(LogoutCommandHandler).Assembly);
+
 
 // Register Repositories
 builder.Services.AddScoped<IVisitorRepository, VisitorRepository>();
@@ -62,11 +67,50 @@ builder.Services.AddSwaggerGen(option =>
 
 
 });
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+})
+.AddJwtBearer(options =>
+{
+    options.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidateIssuer = false, // Not used in your case
+        ValidateAudience = false, // Not used in your case
+        ValidateLifetime = true,
+        ValidateIssuerSigningKey = true,
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["JwtSettings:Key"]))
+    };
+});
 
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("RequireAdminRole", policy => policy.RequireRole("Admin"));
+    options.AddPolicy("RequireManagerRole", policy => policy.RequireRole("Manager"));
+    options.AddPolicy("RequireUserRole", policy => policy.RequireRole("User"));
+    options.AddPolicy("RequireAdminOrManagerRole", policy =>
+         policy.RequireAssertion(context =>
+             context.User.IsInRole("Admin") || context.User.IsInRole("Manager")));
 
+});
 var app = builder.Build();
-app.UseAuthentication();
+
+using (var scope = app.Services.CreateScope())
+{
+    var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole<int>>>();
+    await RoleInitializer.InitializeAsync(roleManager);
+}
+
+app.UseRouting();
+
+app.UseAuthentication(); // Ensure this is in place if using [Authorize]
 app.UseAuthorization();
+
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapControllers(); // Make sure this is present
+});
 
 if (app.Environment.IsDevelopment())
 {
@@ -75,8 +119,6 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
-
 
 app.MapControllers();
 

@@ -6,8 +6,8 @@ namespace Web_Api.Controllers
 {
    
         [ApiController]
-        [Route("api/[controller]")]
-        public class AuthController : ControllerBase
+    [Route("api/[action]")]
+    public class AuthController : ControllerBase
         {
             private readonly IMediator _mediator;
 
@@ -16,14 +16,14 @@ namespace Web_Api.Controllers
                 _mediator = mediator;
             }
 
-            [HttpPost("login")]
+            [HttpPost]
             public async Task<IActionResult> Login([FromBody] LoginCommand command)
             {
                 var response = await _mediator.Send(command);
                 return Ok(response);
             }
 
-        [HttpPost("logout")]
+        [HttpPost]
         public async Task<IActionResult> Logout()
         {
             await _mediator.Send(new LogoutCommand());

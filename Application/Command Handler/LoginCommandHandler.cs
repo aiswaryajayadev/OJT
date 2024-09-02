@@ -22,7 +22,7 @@ namespace Application.Command_Handler
 
         private readonly IConfiguration _configuration;
 
-        public LoginCommandHandler(SignInManager<User> signInManager, UserManager<User> userManager,IConfiguration configuration)
+        public LoginCommandHandler(SignInManager<User> signInManager, UserManager<User> userManager, IConfiguration configuration)
         {
             _signInManager = signInManager;
             _userManager = userManager;
@@ -41,7 +41,7 @@ namespace Application.Command_Handler
             {
                 throw new Exception("Invalid login attempt.");
             }
-            var token = GenerateJwtToken(user);
+            string token = await GenerateJwtToken(user);
             return new LoginResponseDTO
             {
                 Token = token,
@@ -49,29 +49,35 @@ namespace Application.Command_Handler
                 Email = user.Email
             };
         }
-            private string GenerateJwtToken(User user)
+        public async Task<string> GenerateJwtToken(User user)
+        {
+            var claims = new List<Claim>
+    {
+        new Claim(JwtRegisteredClaimNames.Sub, user.UserName),
+        new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
+        new Claim(ClaimTypes.NameIdentifier, user.Id.ToString())
+    };
+
+            // Assuming you have a method to get roles for the user
+            var roles = await _userManager.GetRolesAsync(user);
+            foreach (var role in roles)
             {
-                var claims = new[]
-                {
-            new Claim(JwtRegisteredClaimNames.Sub, user.UserName),
-            new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
-            new Claim(ClaimTypes.NameIdentifier, user.Id.ToString())
-        };
+                claims.Add(new Claim(ClaimTypes.Role, role));
+            }
 
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["JwtSettings:Key"]));
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
             var token = new JwtSecurityToken(
-                issuer: _configuration["JwtSettings:Issuer"],
-                audience: _configuration["JwtSettings:Audience"],
                 claims: claims,
                 expires: DateTime.Now.AddMinutes(30),
                 signingCredentials: creds
             );
 
             return new JwtSecurityTokenHandler().WriteToken(token);
-            }
         }
+
     }
+}
 
 

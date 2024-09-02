@@ -3,10 +3,11 @@ using Application.Queries;
 using Infrastructure.Models;
 using Infrastructure.Models.DTO;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 [ApiController]
-[Route("[controller]/[action]")]
+[Route("api/[action]")]
 public class VisitorController : ControllerBase
 {
     private readonly IMediator _mediator;
@@ -15,9 +16,9 @@ public class VisitorController : ControllerBase
     {
         _mediator = mediator;
     }
-
+    [Authorize(Policy = "RequireUserRole")]   
     [HttpPost]
-    public async Task<ActionResult<Visitor>> CreateVisitor([FromBody] VisitorCreationDTO visitorDto)
+    public async Task<ActionResult<Visitor>> visitors([FromBody] VisitorCreationDTO visitorDto)
     {
         if (visitorDto == null)
         {
@@ -31,9 +32,9 @@ public class VisitorController : ControllerBase
     }
 
 
-
+    [Authorize(Policy = "RequireAdminOrManagerRole")]
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<Visitor>>> GetVisitorDetails()
+    public async Task<ActionResult<IEnumerable<Visitor>>> visitors()
     {
         var result = await _mediator.Send(new GetVisitorDetailsQuery());
         return Ok(result);

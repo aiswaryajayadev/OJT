@@ -23,15 +23,28 @@ namespace Infrastructure.Repository
 
         public async Task<IEnumerable<DisplayUserDTO>> UserListAsync()
         {
-            return await _userManager.Users
-                .Select(u => new DisplayUserDTO
+            var users = await _userManager.Users.ToListAsync();
+
+            var userDTOs = new List<DisplayUserDTO>();
+
+            foreach (var user in users)
+            {
+                var roles = await _userManager.GetRolesAsync(user); // Get roles for each user
+
+                var userDTO = new DisplayUserDTO
                 {
-                    Id = u.Id,
-                    Username = u.UserName,
-                    Email = u.Email
-                })
-                .ToListAsync();
+                    Id = user.Id,
+                    Username = user.UserName,
+                    Email = user.Email,
+                    Roles = roles.ToList() // Assign roles to DTO
+                };
+
+                userDTOs.Add(userDTO);
+            }
+
+            return userDTOs;
         }
+
         public async Task<User> FindByIdAsync(int userId)
         {
             return await _userManager.FindByIdAsync(userId.ToString());

@@ -10,5 +10,8 @@ namespace Application.Common
     {
         public bool Success { get; set; }
         public string Message { get; set; }
+        public static APIResponse SuccessMessage(string message) => new APIResponse { Success = true, Message = message };
+        public static APIResponse Failure(string message) => new APIResponse { Success = false, Message = message };
+
     }
 }

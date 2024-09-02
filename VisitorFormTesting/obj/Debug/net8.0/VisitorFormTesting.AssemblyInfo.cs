@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("VisitorFormTesting")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+05cab35d6ba00f3faba5e3fb11847c9da3b64fde")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d302c32fe03450d369c54a577699960ee1541f98")]
 [assembly: System.Reflection.AssemblyProductAttribute("VisitorFormTesting")]
 [assembly: System.Reflection.AssemblyTitleAttribute("VisitorFormTesting")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
