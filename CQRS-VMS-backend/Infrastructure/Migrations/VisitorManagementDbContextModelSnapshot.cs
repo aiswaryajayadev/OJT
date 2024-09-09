@@ -120,17 +120,11 @@ namespace Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<int>("StaffId")
-                        .HasColumnType("integer");
-
                     b.Property<DateTime>("UpdatedDate")
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<DateTime>("VisitDate")
                         .HasColumnType("timestamp with time zone");
-
-                    b.Property<int>("VisitorPassCode")
-                        .HasColumnType("integer");
 
                     b.HasKey("Id");
 

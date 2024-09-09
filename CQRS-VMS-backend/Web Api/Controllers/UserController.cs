@@ -4,7 +4,7 @@ using Infrastructure.Models;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using System.Threading.Tasks;
+
 
 
 [ApiController]
@@ -71,4 +71,3 @@ public class UserController : ControllerBase
         return Ok(roles);
     }
 }
-

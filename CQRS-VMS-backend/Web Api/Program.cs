@@ -14,6 +14,7 @@ using Infrastructure.Identity;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using Infrastructure.VisitorListHub;
 var builder = WebApplication.CreateBuilder(args);
 
 
@@ -29,7 +30,7 @@ builder.Services.AddMediatR(typeof(CreateUserCommandHandler).Assembly);
 builder.Services.AddMediatR(typeof(LoginCommandHandler).Assembly);
 builder.Services.AddMediatR(typeof(LogoutCommandHandler).Assembly);
 
-
+builder.Services.AddSignalR();
 // Register Repositories
 builder.Services.AddScoped<IVisitorRepository, VisitorRepository>();
 builder.Services.AddControllers();
@@ -94,7 +95,30 @@ builder.Services.AddAuthorization(options =>
              context.User.IsInRole("Admin") || context.User.IsInRole("Manager")));
 
 });
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("CorsPolicy", policy =>
+    {
+        policy.SetIsOriginAllowed(origin =>
+        {
+            // Allow port 4200 specifically
+            if (origin == "http://localhost:4200")
+            {
+                return true;
+            }
+
+            // Allow any other port on localhost
+            Uri uri = new Uri(origin);
+            return uri.Host == "localhost";
+        })
+        .AllowAnyMethod()
+        .AllowAnyHeader()
+        .AllowCredentials(); // Use this cautiously
+    });
+});
 var app = builder.Build();
+app.UseCors("CorsPolicy");
 
 using (var scope = app.Services.CreateScope())
 {
@@ -104,12 +128,13 @@ using (var scope = app.Services.CreateScope())
 
 app.UseRouting();
 
-app.UseAuthentication(); // Ensure this is in place if using [Authorize]
+app.UseAuthentication(); 
 app.UseAuthorization();
 
 app.UseEndpoints(endpoints =>
 {
-    endpoints.MapControllers(); // Make sure this is present
+    endpoints.MapControllers();
+    endpoints.MapHub<VisitorListHub>("/visitorListHub"); 
 });
 
 if (app.Environment.IsDevelopment())

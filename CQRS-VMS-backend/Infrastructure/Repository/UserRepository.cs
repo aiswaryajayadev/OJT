@@ -18,33 +18,56 @@ namespace Infrastructure.Repository
 
         public async Task<IdentityResult> CreateUserAsync(User user, string password)
         {
+            
+            if (user == null) throw new ArgumentNullException(nameof(user)); // Null check for user
+            if (string.IsNullOrWhiteSpace(password)) throw new ArgumentException("Password cannot be null or whitespace.", nameof(password)); // Check password validity
+
             return await _userManager.CreateAsync(user, password);
         }
 
+
         public async Task<IEnumerable<DisplayUserDTO>> UserListAsync()
         {
-            var users = await _userManager.Users.ToListAsync();
+            try
+            {
+                var users = await _userManager.Users.ToListAsync();
 
+                if (users == null || !users.Any()) return Enumerable.Empty<DisplayUserDTO>();
+
+                return await MapUsersToDTOsAsync(users);
+            }
+            catch (Exception ex)
+            {
+                // Log exception (Logging code depends on your logging framework)
+                throw new ApplicationException("An error occurred while retrieving the user list.", ex);
+            }
+        }
+
+        private async Task<List<DisplayUserDTO>> MapUsersToDTOsAsync(IEnumerable<User> users)
+        {
             var userDTOs = new List<DisplayUserDTO>();
 
             foreach (var user in users)
             {
-                var roles = await _userManager.GetRolesAsync(user); // Get roles for each user
-
-                var userDTO = new DisplayUserDTO
-                {
-                    Id = user.Id,
-                    Username = user.UserName,
-                    Email = user.Email,
-                    Roles = roles.ToList() // Assign roles to DTO
-                };
-
+                var userDTO = await MapUserToDTOAsync(user);
                 userDTOs.Add(userDTO);
             }
 
             return userDTOs;
         }
 
+        private async Task<DisplayUserDTO> MapUserToDTOAsync(User user)
+        {
+            var roles = await _userManager.GetRolesAsync(user); // Fetch roles for each user
+
+            return new DisplayUserDTO
+            {
+                Id = user.Id,
+                Username = user.UserName,
+                Email = user.Email,
+                Roles = roles?.ToList() ?? new List<string>() // Ensure roles are not null
+            };
+        }
         public async Task<User> FindByIdAsync(int userId)
         {
             return await _userManager.FindByIdAsync(userId.ToString());

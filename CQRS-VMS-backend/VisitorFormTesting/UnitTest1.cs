@@ -44,7 +44,7 @@ namespace VisitorFormTesting
                 PurposeOfVisit = "Interview",
                 HostName = "Host1",
                 OfficeLocation = "TVM",
-                VisitorPassCode = 1234,
+               
                 VisitDate = DateTime.Today,
                 CreatedDate = DateTime.Now,
                 UpdatedDate = DateTime.Now
@@ -54,7 +54,7 @@ namespace VisitorFormTesting
                      .ReturnsAsync(createdVisitor);
 
             // Act
-            var actionResult = await _controller.CreateVisitor(visitorDto);
+            var actionResult = await _controller.visitors(visitorDto);
 
             // Assert
             Assert.That(actionResult.Result, Is.TypeOf<OkObjectResult>());
@@ -70,7 +70,7 @@ namespace VisitorFormTesting
         public async Task CreateVisitor_WithNullDto_ReturnsBadRequest()
         {
             // Act
-            var actionResult = await _controller.CreateVisitor(null);
+            var actionResult = await _controller.visitors(null);
 
             // Assert
             Assert.That(actionResult.Result, Is.TypeOf<BadRequestObjectResult>());
@@ -87,15 +87,15 @@ namespace VisitorFormTesting
             // Arrange
             var visitors = new List<Visitor>
             {
-                new Visitor { Id = 1, Name = "Visitor1", Phone = "1111111111", PurposeOfVisit = "Meeting", HostName = "Host1", OfficeLocation = "Kochi", VisitorPassCode = 1234, VisitDate = DateTime.Today },
-                new Visitor { Id = 2, Name = "Visitor2", Phone = "2222222222", PurposeOfVisit = "Training", HostName = "Host2", OfficeLocation = "TVM", VisitorPassCode = 5678, VisitDate = DateTime.Today }
+                new Visitor { Id = 1, Name = "Visitor1", Phone = "1111111111", PurposeOfVisit = "Meeting", HostName = "Host1", OfficeLocation = "Kochi",  VisitDate = DateTime.Today },
+                new Visitor { Id = 2, Name = "Visitor2", Phone = "2222222222", PurposeOfVisit = "Training", HostName = "Host2", OfficeLocation = "TVM",  VisitDate = DateTime.Today }
             };
 
             _mediator.Setup(m => m.Send(It.IsAny<GetVisitorDetailsQuery>(), default))
                      .ReturnsAsync(visitors);
 
             // Act
-            var actionResult = await _controller.GetVisitorDetails();
+            var actionResult = await _controller.visitors();
 
             // Assert
             Assert.That(actionResult.Result, Is.TypeOf<OkObjectResult>());

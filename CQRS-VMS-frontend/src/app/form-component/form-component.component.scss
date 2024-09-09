@@ -1,0 +1,55 @@
+
+.submitButtonHieght{
+    height: 56px;
+}
+.astrik{
+    color :red
+}
+
+.button3{
+    border: none;
+    border-radius: 5px;
+    width: 200px;
+    padding: 15px 32px;
+    align-items: center;
+    text-decoration: none;
+    display: inline-flex; /* Use inline-flex instead of inline-block */
+    justify-content: center; /* Center items horizontally */
+    font-size: 16px;
+    margin: 10px 20px;
+    cursor: pointer;
+    background-color: #684683; 
+    color: white; 
+    border: 2px solid #684683;
+}
+
+.inputLabel{
+    display: block;
+    margin-bottom: 10px;
+}
+
+
+.largeInput {
+    width: 700px;
+    margin-right: 10px;
+}
+
+.visitorForm{
+    display: flex;
+    justify-content: center; 
+    flex-direction: column;   
+    width: 100%;
+    margin-top: 20px;
+    align-items: center;
+    
+}
+
+
+.row{
+    display: flex;    
+}
+
+.col {
+    display: flex;
+    flex-direction: column;
+  }

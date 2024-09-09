@@ -16,27 +16,45 @@ public class VisitorController : ControllerBase
     {
         _mediator = mediator;
     }
-    [Authorize(Policy = "RequireUserRole")]   
+    // Creates a new visitor.
+    /* [Authorize(Policy = "RequireUserRole")] */
     [HttpPost]
     public async Task<ActionResult<Visitor>> visitors([FromBody] VisitorCreationDTO visitorDto)
     {
         if (visitorDto == null)
         {
-            return BadRequest("Visitor data cannot be null");
+            return BadRequest("Visitor data cannot be null.");
         }
 
-        var command = new CreateVisitorCommand { VisitorDto = visitorDto };
-        var result = await _mediator.Send(command);
+        try
+        {
+            var command = new CreateVisitorCommand { VisitorDto = visitorDto };
+            var result = await _mediator.Send(command);
 
-        return Ok(result);
+            return Ok(result);
+        }
+        catch (Exception ex)
+        {
+            // Log the exception as necessary
+            return StatusCode(500, $"An error occurred: {ex.Message}");
+        }
     }
 
 
-    [Authorize(Policy = "RequireAdminOrManagerRole")]
+    /*[Authorize(Policy = "RequireAdminOrManagerRole")]*/
+    // Retrieves a list of visitors.
     [HttpGet]
     public async Task<ActionResult<IEnumerable<Visitor>>> visitors()
     {
-        var result = await _mediator.Send(new GetVisitorDetailsQuery());
-        return Ok(result);
+        try
+        {
+            var result = await _mediator.Send(new GetVisitorDetailsQuery());
+            return Ok(result);
+        }
+        catch (Exception ex)
+        {
+            // Log the exception as necessary
+            return StatusCode(500, $"An error occurred: {ex.Message}");
+        }
     }
 }

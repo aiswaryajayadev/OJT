@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Infrastructure.Migrations
 {
     [DbContext(typeof(VisitorManagementDbContext))]
-    [Migration("20240822061615_createUserTable")]
-    partial class createUserTable
+    [Migration("20240905054208_CreateVisitorTable")]
+    partial class CreateVisitorTable
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -123,17 +123,11 @@ namespace Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<int>("StaffId")
-                        .HasColumnType("integer");
-
                     b.Property<DateTime>("UpdatedDate")
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<DateTime>("VisitDate")
                         .HasColumnType("timestamp with time zone");
-
-                    b.Property<int>("VisitorPassCode")
-                        .HasColumnType("integer");
 
                     b.HasKey("Id");
 

@@ -1,0 +1,102 @@
+
+<div class="header">
+<h2>Visitor Form</h2>
+</div>
+<form class="visitorForm" [formGroup]="addvisitorForm" (ngSubmit)="onSubmit()">
+  
+  <div class="row mb-3">
+    <div class="col">
+      <label  class="inputLabel">Name<span class="astrik">*</span> </label>
+      <mat-form-field appearance="outline" class="largeInput form-control">
+          <mat-label class="placeHolder">Enter the Name</mat-label>
+          <input matInput formControlName="name" id="name">
+          
+          <mat-error *ngIf="addvisitorForm.get('name')?.hasError('required')">
+            *Required Field
+          </mat-error>
+      </mat-form-field>
+  </div>
+</div>
+         
+<div class="row mb-3">
+      <div class="col">
+        <label  class="inputLabel">Phone Number<span class="astrik">*</span> </label>
+       
+
+
+        <mat-form-field appearance="outline" class="largeInput form-control">
+          
+            <mat-label class="placeHolder">Enter the Phone Number</mat-label>
+            <input matInput  id="phoneNumber" name="phoneNumber" formControlName="phoneNumber" >
+            
+            <mat-error *ngIf="addvisitorForm.get('phoneNumber')?.hasError('required')">
+              *Required Field
+            </mat-error>
+           
+        </mat-form-field>
+      </div>
+      </div>
+  
+  <div class="row mb-3">
+    <div class="col">
+      <label  class="inputLabel">Person to Meet<span class="astrik">*</span> </label>
+      <mat-form-field appearance="outline" class="largeInput form-control">
+          <mat-label class="placeHolder">Enter the name of the host</mat-label>
+          <input matInput formControlName="personInContact" >          
+          <mat-error *ngIf="addvisitorForm.get('personInContact')?.hasError('required')">
+            *Required Field
+          </mat-error>
+      </mat-form-field>         
+          </div>
+      </div>
+     
+ 
+          <div class="row mb-3">
+            <div class="col">
+              <label class="inputLabel">Purpose Of Visit<span class="astrik">*</span></label>
+              <mat-form-field appearance="outline" class="largeInput form-control">
+                <mat-label class="placeHolder">Enter the Purpose of Visit</mat-label>
+                <input matInput formControlName="purposeofvisit" >          
+                <mat-error *ngIf="addvisitorForm.get('purposeofvisit')?.hasError('required')">
+                  *Required Field
+                </mat-error>
+            </mat-form-field>             
+                    
+            
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="col">
+              <label class="inputLabel">Venue<span class="astrik">*</span></label>
+              <mat-form-field appearance="outline" class="largeInput form-control">
+                <mat-label class="placeHolder">Enter the Venue</mat-label>
+                <input matInput formControlName="location" >          
+                <mat-error *ngIf="addvisitorForm.get('location')?.hasError('required')">
+                  *Required Field
+                </mat-error>
+            </mat-form-field>             
+                    
+            
+            </div>
+          </div>
+          
+  
+
+ 
+  
+  
+  
+  
+  
+
+  <div class="row mb-3">
+ 
+      <div class="col">        
+          <button class="button3 submitButtonHieght" type="submit">
+              Submit
+          </button>
+      </div>
+     
+  </div>
+  
+</form>
