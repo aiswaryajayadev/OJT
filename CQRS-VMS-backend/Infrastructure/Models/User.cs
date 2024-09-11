@@ -9,6 +9,6 @@ namespace Infrastructure.Models
 {
     public class User : IdentityUser<int>
     {
-        public string? Email { get; set; }
+        public string Email { get; set; }
     }
 }

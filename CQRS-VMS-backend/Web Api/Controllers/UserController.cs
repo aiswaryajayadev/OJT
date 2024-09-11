@@ -17,7 +17,7 @@ public class UserController : ControllerBase
         _mediator = mediator;
     }
 
-    [Authorize(Policy = "RequireAdminRole")]
+   /* [Authorize(Policy = "RequireAdminRole")]*/
     [HttpPost]
     public async Task<IActionResult> users([FromBody] CreateUserCommand command)
     {
@@ -31,7 +31,7 @@ public class UserController : ControllerBase
 
 
     
-    [Authorize(Policy = "RequireAdminOrManagerRole")]
+   /* [Authorize(Policy = "RequireAdminOrManagerRole")]*/
     [HttpGet]
     public async Task<ActionResult<IEnumerable<User>>> users()
     {
@@ -41,7 +41,7 @@ public class UserController : ControllerBase
 
 
 
-    [Authorize(Policy = "RequireAdminRole")]
+    /*[Authorize(Policy = "RequireAdminRole")]*/
     [HttpPut]
     public async Task<IActionResult> user([FromBody] UpdateUserCommand command)
     {
@@ -52,7 +52,7 @@ public class UserController : ControllerBase
         }
         return BadRequest(result);
     }
-    [Authorize(Policy = "RequireAdminRole")]
+   /* [Authorize(Policy = "RequireAdminRole")]*/
     [HttpPost]
     public async Task<IActionResult> assignrole([FromBody] AssignRoleCommand command)
     {
@@ -63,7 +63,7 @@ public class UserController : ControllerBase
         }
         return BadRequest(result);
     }
-    [Authorize(Policy = "RequireAdminOrManagerRole")]
+   /* [Authorize(Policy = "RequireAdminOrManagerRole")]*/
     [HttpGet("{userId}")]
     public async Task<IActionResult> role(string userId)
     {

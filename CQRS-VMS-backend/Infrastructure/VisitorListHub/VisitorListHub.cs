@@ -10,5 +10,6 @@ namespace Infrastructure.VisitorListHub
         {
             await Clients.All.SendAsync("RecieveVisitorList", visitorCreationDTO);
         }
+
     }
 }

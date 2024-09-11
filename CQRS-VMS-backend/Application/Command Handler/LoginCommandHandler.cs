@@ -4,14 +4,12 @@ using Infrastructure.Models.DTO;
 using MediatR;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
+
 using Microsoft.IdentityModel.Tokens;
-using System;
-using System.Collections.Generic;
+using Serilog;
 using System.IdentityModel.Tokens.Jwt;
-using System.Linq;
 using System.Security.Claims;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace Application.Command_Handler
 {
@@ -19,29 +17,41 @@ namespace Application.Command_Handler
     {
         private readonly SignInManager<User> _signInManager;
         private readonly UserManager<User> _userManager;
-
         private readonly IConfiguration _configuration;
+        private readonly ILogger _logger;
 
         public LoginCommandHandler(SignInManager<User> signInManager, UserManager<User> userManager, IConfiguration configuration)
         {
             _signInManager = signInManager;
             _userManager = userManager;
             _configuration = configuration;
+            _logger = Log.ForContext<CreateUserCommandHandler>();
         }
+
         public async Task<LoginResponseDTO> Handle(LoginCommand request, CancellationToken cancellationToken)
         {
+            _logger.Information("Login attempt for Username: {Username}", request.Username);
+
             var user = await _userManager.FindByNameAsync(request.Username);
             if (user == null)
             {
+                _logger.Warning("Login failed for Username: {Username}. User not found.", request.Username);
                 throw new Exception("Invalid login attempt.");
             }
 
             var result = await _signInManager.CheckPasswordSignInAsync(user, request.Password, false);
             if (!result.Succeeded)
             {
+                _logger.Warning("Login failed for Username: {Username}. Incorrect password.", request.Username);
                 throw new Exception("Invalid login attempt.");
             }
+
+            _logger.Information("Login successful for Username: {Username}. Generating JWT.", request.Username);
+
             string token = await GenerateJwtToken(user);
+
+            _logger.Information("JWT generated for Username: {Username}", request.Username);
+
             return new LoginResponseDTO
             {
                 Token = token,
@@ -49,20 +59,23 @@ namespace Application.Command_Handler
                 Email = user.Email
             };
         }
+
         public async Task<string> GenerateJwtToken(User user)
         {
-            var claims = new List<Claim>
-    {
-        new Claim(JwtRegisteredClaimNames.Sub, user.UserName),
-        new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
-        new Claim(ClaimTypes.NameIdentifier, user.Id.ToString())
-    };
+            _logger.Information("Generating JWT token for user {UserId}", user.Id);
 
-            // Assuming you have a method to get roles for the user
+            var claims = new List<Claim>
+            {
+                new Claim(JwtRegisteredClaimNames.Sub, user.UserName),
+                new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
+                new Claim(ClaimTypes.NameIdentifier, user.Id.ToString())
+            };
+
             var roles = await _userManager.GetRolesAsync(user);
             foreach (var role in roles)
             {
                 claims.Add(new Claim(ClaimTypes.Role, role));
+                _logger.Information("Added role {Role} to JWT for user {UserId}", role, user.Id);
             }
 
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["JwtSettings:Key"]));
@@ -76,8 +89,5 @@ namespace Application.Command_Handler
 
             return new JwtSecurityTokenHandler().WriteToken(token);
         }
-
     }
 }
-
-

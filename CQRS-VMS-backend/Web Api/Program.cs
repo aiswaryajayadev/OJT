@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using MediatR;
-using Microsoft.AspNetCore.Hosting;
+
 using Application.Command_Handler;
 using Application.Validators;
 using Infrastructure.Repository.IRepository;
@@ -15,24 +15,42 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using Infrastructure.VisitorListHub;
+using Application.Behaviors;
+using Serilog;
+
 var builder = WebApplication.CreateBuilder(args);
 
 
 builder.Services.AddDbContext<VisitorManagementDbContext>(options =>
 options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+
 builder.Services.AddMediatR(typeof(CreateVisitorCommandHandler).Assembly);
-builder.Services.AddValidatorsFromAssembly(typeof(CreateVisitorCommandValidator).Assembly);
-builder.Services.AddIdentity<User, IdentityRole<int>>()
-        .AddEntityFrameworkStores<VisitorManagementDbContext>()
-        .AddDefaultTokenProviders();
-builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddMediatR(typeof(CreateUserCommandHandler).Assembly);
 builder.Services.AddMediatR(typeof(LoginCommandHandler).Assembly);
 builder.Services.AddMediatR(typeof(LogoutCommandHandler).Assembly);
 
+builder.Services.AddValidatorsFromAssembly(typeof(CreateVisitorCommandValidator).Assembly);
+builder.Services.AddValidatorsFromAssembly(typeof(CreateUserCommandValidator).Assembly);
+builder.Services.AddValidatorsFromAssembly(typeof(LoginCommandValidator).Assembly);
+
+
+builder.Services.AddIdentity<User, IdentityRole<int>>()
+        .AddEntityFrameworkStores<VisitorManagementDbContext>()
+        .AddDefaultTokenProviders();
+
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IVisitorRepository, VisitorRepository>();
+
+
+builder.Services.AddTransient(typeof(IPipelineBehavior<,>), typeof(LoggingBehavior<,>));
+builder.Services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
+builder.Services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ExceptionHandlingBehavior<,>));
+
+
 builder.Services.AddSignalR();
 // Register Repositories
-builder.Services.AddScoped<IVisitorRepository, VisitorRepository>();
+
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(option =>
@@ -117,6 +135,14 @@ builder.Services.AddCors(options =>
         .AllowCredentials(); // Use this cautiously
     });
 });
+
+Log.Logger = new LoggerConfiguration()
+    .WriteTo.Console()
+    .WriteTo.File("logs/log-.txt", rollingInterval: RollingInterval.Day) // Optional: to log in a file
+    .CreateLogger();
+
+builder.Host.UseSerilog();
+
 var app = builder.Build();
 app.UseCors("CorsPolicy");
 

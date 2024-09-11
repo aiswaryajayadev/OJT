@@ -1,0 +1,153 @@
+2024-09-11 10:54:15.717 +05:30 [INF] Executed DbCommand (63ms) [Parameters=[@__normalizedName_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT a."Id", a."ConcurrencyStamp", a."Name", a."NormalizedName"
+FROM "AspNetRoles" AS a
+WHERE a."NormalizedName" = @__normalizedName_0
+LIMIT 1
+2024-09-11 10:54:15.834 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[@__normalizedName_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT a."Id", a."ConcurrencyStamp", a."Name", a."NormalizedName"
+FROM "AspNetRoles" AS a
+WHERE a."NormalizedName" = @__normalizedName_0
+LIMIT 1
+2024-09-11 10:54:15.845 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__normalizedName_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT a."Id", a."ConcurrencyStamp", a."Name", a."NormalizedName"
+FROM "AspNetRoles" AS a
+WHERE a."NormalizedName" = @__normalizedName_0
+LIMIT 1
+2024-09-11 10:54:16.023 +05:30 [INF] User profile is available. Using 'C:\Users\aiswarya.jayadev\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-09-11 10:54:17.263 +05:30 [INF] Now listening on: https://localhost:7112
+2024-09-11 10:54:17.264 +05:30 [INF] Now listening on: http://localhost:5173
+2024-09-11 10:54:17.268 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2024-09-11 10:54:17.269 +05:30 [INF] Hosting environment: Development
+2024-09-11 10:54:17.270 +05:30 [INF] Content root path: C:\Users\aiswarya.jayadev\Desktop\OJT\CQRS-VMS\CQRS-VMS-backend\Web Api
+2024-09-11 10:54:18.244 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7112/swagger/index.html - null null
+2024-09-11 10:54:18.579 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7112/swagger/index.html - 200 null text/html;charset=utf-8 342.4793ms
+2024-09-11 10:54:18.613 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7112/_framework/aspnetcore-browser-refresh.js - null null
+2024-09-11 10:54:18.613 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7112/swagger/index.js - null null
+2024-09-11 10:54:18.626 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7112/swagger/index.js - 200 null application/javascript;charset=utf-8 12.393ms
+2024-09-11 10:54:18.639 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7112/_framework/aspnetcore-browser-refresh.js - 200 13750 application/javascript; charset=utf-8 25.956ms
+2024-09-11 10:54:18.689 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7112/_vs/browserLink - null null
+2024-09-11 10:54:18.769 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7112/_vs/browserLink - 200 null text/javascript; charset=UTF-8 80.8055ms
+2024-09-11 10:54:18.972 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7112/swagger/v1/swagger.json - null null
+2024-09-11 10:54:19.141 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7112/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 170.3825ms
+2024-09-11 10:55:03.717 +05:30 [INF] Request starting HTTP/2 PUT https://localhost:7112/api/user - application/json 61
+2024-09-11 10:55:03.724 +05:30 [INF] CORS policy execution successful.
+2024-09-11 10:55:03.733 +05:30 [INF] Authorization failed. These requirements were not met:
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (Admin)
+2024-09-11 10:55:03.739 +05:30 [INF] AuthenticationScheme: Bearer was challenged.
+2024-09-11 10:55:03.742 +05:30 [INF] Request finished HTTP/2 PUT https://localhost:7112/api/user - 401 0 null 25.1877ms
+2024-09-11 10:55:15.634 +05:30 [INF] Request starting HTTP/2 PUT https://localhost:7112/api/user - application/json 89
+2024-09-11 10:55:15.639 +05:30 [INF] CORS policy execution successful.
+2024-09-11 10:55:15.643 +05:30 [INF] Authorization failed. These requirements were not met:
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (Admin)
+2024-09-11 10:55:15.645 +05:30 [INF] AuthenticationScheme: Bearer was challenged.
+2024-09-11 10:55:15.647 +05:30 [INF] Request finished HTTP/2 PUT https://localhost:7112/api/user - 401 0 null 13.442ms
+2024-09-11 10:56:20.062 +05:30 [INF] Executed DbCommand (49ms) [Parameters=[@__normalizedName_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT a."Id", a."ConcurrencyStamp", a."Name", a."NormalizedName"
+FROM "AspNetRoles" AS a
+WHERE a."NormalizedName" = @__normalizedName_0
+LIMIT 1
+2024-09-11 10:56:20.175 +05:30 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedName_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT a."Id", a."ConcurrencyStamp", a."Name", a."NormalizedName"
+FROM "AspNetRoles" AS a
+WHERE a."NormalizedName" = @__normalizedName_0
+LIMIT 1
+2024-09-11 10:56:20.179 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@__normalizedName_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT a."Id", a."ConcurrencyStamp", a."Name", a."NormalizedName"
+FROM "AspNetRoles" AS a
+WHERE a."NormalizedName" = @__normalizedName_0
+LIMIT 1
+2024-09-11 10:56:20.341 +05:30 [INF] User profile is available. Using 'C:\Users\aiswarya.jayadev\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-09-11 10:56:20.974 +05:30 [INF] Now listening on: https://localhost:7112
+2024-09-11 10:56:20.975 +05:30 [INF] Now listening on: http://localhost:5173
+2024-09-11 10:56:20.978 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2024-09-11 10:56:20.983 +05:30 [INF] Hosting environment: Development
+2024-09-11 10:56:20.984 +05:30 [INF] Content root path: C:\Users\aiswarya.jayadev\Desktop\OJT\CQRS-VMS\CQRS-VMS-backend\Web Api
+2024-09-11 10:56:21.549 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7112/swagger/index.html - null null
+2024-09-11 10:56:21.805 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7112/swagger/index.html - 200 null text/html;charset=utf-8 260.8757ms
+2024-09-11 10:56:21.829 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7112/swagger/index.js - null null
+2024-09-11 10:56:21.829 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7112/_framework/aspnetcore-browser-refresh.js - null null
+2024-09-11 10:56:21.835 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7112/swagger/index.js - 200 null application/javascript;charset=utf-8 6.3217ms
+2024-09-11 10:56:21.841 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7112/_vs/browserLink - null null
+2024-09-11 10:56:21.844 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7112/_framework/aspnetcore-browser-refresh.js - 200 13750 application/javascript; charset=utf-8 15.0928ms
+2024-09-11 10:56:21.884 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7112/_vs/browserLink - 200 null text/javascript; charset=UTF-8 43.6886ms
+2024-09-11 10:56:22.038 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7112/swagger/v1/swagger.json - null null
+2024-09-11 10:56:22.171 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7112/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 133.0823ms
+2024-09-11 10:57:36.601 +05:30 [INF] Request starting HTTP/2 PUT https://localhost:7112/api/user - application/json 61
+2024-09-11 10:57:36.615 +05:30 [INF] CORS policy execution successful.
+2024-09-11 10:57:36.621 +05:30 [INF] Executing endpoint 'UserController.user (Web Api)'
+2024-09-11 10:57:36.645 +05:30 [INF] Route matched with {action = "user", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] user(Application.Commands.UpdateUserCommand) on controller UserController (Web Api).
+2024-09-11 10:57:36.711 +05:30 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2024-09-11 10:57:36.746 +05:30 [INF] Executed action UserController.user (Web Api) in 92.699ms
+2024-09-11 10:57:36.749 +05:30 [INF] Executed endpoint 'UserController.user (Web Api)'
+2024-09-11 10:57:36.752 +05:30 [INF] Request finished HTTP/2 PUT https://localhost:7112/api/user - 400 null application/problem+json; charset=utf-8 150.761ms
+2024-09-11 10:57:51.017 +05:30 [INF] Request starting HTTP/2 PUT https://localhost:7112/api/user - application/json 6
+2024-09-11 10:57:51.033 +05:30 [INF] CORS policy execution successful.
+2024-09-11 10:57:51.037 +05:30 [INF] Executing endpoint 'UserController.user (Web Api)'
+2024-09-11 10:57:51.039 +05:30 [INF] Route matched with {action = "user", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] user(Application.Commands.UpdateUserCommand) on controller UserController (Web Api).
+2024-09-11 10:57:51.063 +05:30 [INF] Handling UpdateUserCommand with data {"UserId":0,"Username":null,"Email":null,"NewPassword":null,"$type":"UpdateUserCommand"}
+2024-09-11 10:57:51.097 +05:30 [INF] Handling UpdateUserCommand for UserId: 0
+2024-09-11 10:57:51.203 +05:30 [INF] Executed DbCommand (7ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT a."Id", a."AccessFailedCount", a."ConcurrencyStamp", a."Email", a."EmailConfirmed", a."LockoutEnabled", a."LockoutEnd", a."NormalizedEmail", a."NormalizedUserName", a."PasswordHash", a."PhoneNumber", a."PhoneNumberConfirmed", a."SecurityStamp", a."TwoFactorEnabled", a."UserName"
+FROM "AspNetUsers" AS a
+WHERE a."Id" = @__p_0
+LIMIT 1
+2024-09-11 10:57:51.208 +05:30 [WRN] User with Id: 0 not found.
+2024-09-11 10:57:51.211 +05:30 [INF] Handled UpdateUserCommand with response {"Success":false,"Message":"User not found","$type":"APIResponse"}
+2024-09-11 10:57:51.224 +05:30 [INF] Executing BadRequestObjectResult, writing value of type 'Application.Common.APIResponse'.
+2024-09-11 10:57:51.234 +05:30 [INF] Executed action UserController.user (Web Api) in 192.0031ms
+2024-09-11 10:57:51.236 +05:30 [INF] Executed endpoint 'UserController.user (Web Api)'
+2024-09-11 10:57:51.243 +05:30 [INF] Request finished HTTP/2 PUT https://localhost:7112/api/user - 400 null application/json; charset=utf-8 225.6338ms
+2024-09-11 10:58:07.658 +05:30 [INF] Request starting HTTP/2 PUT https://localhost:7112/api/user - application/json 18
+2024-09-11 10:58:07.663 +05:30 [INF] CORS policy execution successful.
+2024-09-11 10:58:07.664 +05:30 [INF] Executing endpoint 'UserController.user (Web Api)'
+2024-09-11 10:58:07.666 +05:30 [INF] Route matched with {action = "user", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] user(Application.Commands.UpdateUserCommand) on controller UserController (Web Api).
+2024-09-11 10:58:07.674 +05:30 [INF] Handling UpdateUserCommand with data {"UserId":1,"Username":null,"Email":null,"NewPassword":null,"$type":"UpdateUserCommand"}
+2024-09-11 10:58:07.680 +05:30 [INF] Handling UpdateUserCommand for UserId: 1
+2024-09-11 10:58:07.699 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT a."Id", a."AccessFailedCount", a."ConcurrencyStamp", a."Email", a."EmailConfirmed", a."LockoutEnabled", a."LockoutEnd", a."NormalizedEmail", a."NormalizedUserName", a."PasswordHash", a."PhoneNumber", a."PhoneNumberConfirmed", a."SecurityStamp", a."TwoFactorEnabled", a."UserName"
+FROM "AspNetUsers" AS a
+WHERE a."Id" = @__p_0
+LIMIT 1
+2024-09-11 10:58:07.751 +05:30 [INF] Found User: meera, proceeding with update.
+2024-09-11 10:58:07.753 +05:30 [INF] Updating user: null, Email: null
+2024-09-11 10:58:07.767 +05:30 [ERR] Failed to update user: null
+2024-09-11 10:58:07.769 +05:30 [INF] Handled UpdateUserCommand with response {"Success":false,"Message":"Failed to update user","$type":"APIResponse"}
+2024-09-11 10:58:07.775 +05:30 [INF] Executing BadRequestObjectResult, writing value of type 'Application.Common.APIResponse'.
+2024-09-11 10:58:07.777 +05:30 [INF] Executed action UserController.user (Web Api) in 108.7446ms
+2024-09-11 10:58:07.779 +05:30 [INF] Executed endpoint 'UserController.user (Web Api)'
+2024-09-11 10:58:07.780 +05:30 [INF] Request finished HTTP/2 PUT https://localhost:7112/api/user - 400 null application/json; charset=utf-8 122.9475ms
+2024-09-11 10:58:25.483 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7112/api/users - application/json 4
+2024-09-11 10:58:25.487 +05:30 [INF] CORS policy execution successful.
+2024-09-11 10:58:25.489 +05:30 [INF] Executing endpoint 'UserController.users (Web Api)'
+2024-09-11 10:58:25.495 +05:30 [INF] Route matched with {action = "users", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] users(Application.Commands.CreateUserCommand) on controller UserController (Web Api).
+2024-09-11 10:58:25.515 +05:30 [INF] Handling CreateUserCommand with data {"Username":null,"Password":null,"Email":null,"$type":"CreateUserCommand"}
+2024-09-11 10:58:25.677 +05:30 [INF] Executed action UserController.users (Web Api) in 179.6706ms
+2024-09-11 10:58:25.679 +05:30 [INF] Executed endpoint 'UserController.users (Web Api)'
+2024-09-11 10:58:25.683 +05:30 [ERR] An unhandled exception has occurred while executing the request.
+FluentValidation.ValidationException: Validation failed: 
+ -- Username: Username is required. Severity: Error
+ -- Password: Password is required. Severity: Error
+   at Application.Behaviors.ValidationBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\aiswarya.jayadev\Desktop\OJT\CQRS-VMS\CQRS-VMS-backend\Application\Behaviors\ValidationBehavior.cs:line 30
+   at LoggingBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in C:\Users\aiswarya.jayadev\Desktop\OJT\CQRS-VMS\CQRS-VMS-backend\Application\Behaviors\LoggingBehavior.cs:line 20
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestPostProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at MediatR.Pipeline.RequestPreProcessorBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken)
+   at UserController.users(CreateUserCommand command) in C:\Users\aiswarya.jayadev\Desktop\OJT\CQRS-VMS\CQRS-VMS-backend\Web Api\Controllers\UserController.cs:line 24
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2024-09-11 10:58:25.729 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7112/api/users - 500 null text/plain; charset=utf-8 247.2347ms

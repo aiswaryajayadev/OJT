@@ -38,7 +38,7 @@ namespace Infrastructure.Repository
             }
             catch (Exception ex)
             {
-                // Log exception (Logging code depends on your logging framework)
+                
                 throw new ApplicationException("An error occurred while retrieving the user list.", ex);
             }
         }
@@ -49,24 +49,20 @@ namespace Infrastructure.Repository
 
             foreach (var user in users)
             {
-                var userDTO = await MapUserToDTOAsync(user);
+                var roles = await _userManager.GetRolesAsync(user); // Fetch roles for each user
+
+                var userDTO = new DisplayUserDTO
+                {
+                    Id = user.Id,
+                    Username = user.UserName,
+                    Email = user.Email,
+                    Roles = roles?.ToList() ?? new List<string>() // Ensure roles are not null
+                };
+
                 userDTOs.Add(userDTO);
             }
 
             return userDTOs;
-        }
-
-        private async Task<DisplayUserDTO> MapUserToDTOAsync(User user)
-        {
-            var roles = await _userManager.GetRolesAsync(user); // Fetch roles for each user
-
-            return new DisplayUserDTO
-            {
-                Id = user.Id,
-                Username = user.UserName,
-                Email = user.Email,
-                Roles = roles?.ToList() ?? new List<string>() // Ensure roles are not null
-            };
         }
         public async Task<User> FindByIdAsync(int userId)
         {
